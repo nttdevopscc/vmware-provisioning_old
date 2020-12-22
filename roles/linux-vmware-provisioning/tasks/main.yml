@@ -1,7 +1,7 @@
 ---
 - name: Clone Linux VMs from template
   vmware_guest:
-    validate_certs: false
+    validate_certs: no
     esxi_hostname: "{{ vmware_esx_host }}"
     datacenter: "{{ vmware_datacenter }}"
     datastore: "{{ vmware_datastore }}"
