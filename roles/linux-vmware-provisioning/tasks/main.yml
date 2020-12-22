@@ -1,0 +1,32 @@
+---
+- name: Clone Linux VMs from template
+  tags:
+    - create
+    - vmware
+  vmware_guest:
+    hostname: "{{ vmware_hostname}}"
+    username: "{{ vmware_user }}"
+    password: "{{ vmware_pass }}"
+    validate_certs: false
+    esxi_hostname: "{{ esx_host }}"
+    datacenter: "{{ vmware_datacenter }}"
+    folder: "{{ vmware_vm_folder }}/"
+    name: "{{ inventory_hostname }}"
+    state: poweredon
+    disk:
+    - size_gb: "{{ disksize }}"
+      type: "{{ disktype }}"
+      datastore: "{{ datastore }}"          
+    hardware:
+      memory_mb: "{{ memory_mb }}"
+      num_cpus: "{{ num_cpus }}"
+    networks:
+    - name: "{{ port_group }}"
+      ip: "{{ ansible_host }}"
+      netmask: "{{ netmask }}"
+      gateway: "{{ gateway }}"
+    customization:
+      hostname: "{{ inventory_hostname }}"
+      dns_servers: "{{ dns_server }}"
+    template: "{{ vmware_template_name }}"
+    wait_for_ip_address: yes

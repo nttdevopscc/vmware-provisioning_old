@@ -1,0 +1,8 @@
+---
+- name: Linux VM Provisioning
+  hosts: rhel8_servers
+  ignore_errors: true
+  ignore_unreachable: true
+  roles:
+    - linux-vmware-provisioning
+  become: yes
