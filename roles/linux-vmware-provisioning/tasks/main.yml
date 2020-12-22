@@ -2,10 +2,10 @@
 - name: Clone Linux VMs from template
   vmware_guest:
     validate_certs: false
-    esxi_hostname: "{{ esx_host }}"
+    esxi_hostname: "{{ vmware_esx_host }}"
     datacenter: "{{ vmware_datacenter }}"
     datastore: "{{ vmware_datastore }}"
-    folder: "{{ vmware_vm_folder }}/"
+    folder: /
     name: "{{ vmware_hostname }}"
     state: poweredon
     disk:
@@ -17,16 +17,16 @@
       num_cpus: "{{ num_cpus }}"
       scsi: paravirtual
     networks:
-    - name: "{{ port_group }}"
-      ip: "{{ ansible_host }}"
-      netmask: "{{ netmask }}"
-      gateway: "{{ gateway }}"
+    - name: "{{ vmware_port_group }}"
+      ip: "{{ vmware_ipaddress }}"
+      netmask: "{{ vmware_netmask }}"
+      gateway: "{{ vmware_gateway }}"
       type: static
       allow_guest_control: yes
       start_connected: yes
     wait_for_ip_address: yes
     customization:
       hostname: "{{ vmware_hostname }}"
-      dns_servers: "{{ dns_server }}"
+      dns_servers: "{{ vmware_dns_server }}"
     template: "{{ vmware_template_name }}"
   register: deploy_vm
