@@ -1,5 +1,5 @@
 ---
-- name: Clone Linux VM from template
+- name: Clone Windows VM from template
   vmware_guest:
     validate_certs: no
     esxi_hostname: "{{ vmware_esx_host }}"
