@@ -1,0 +1,7 @@
+---
+- name: Provision a Virtual Machine
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  roles:
+    - vmware-provisioning
