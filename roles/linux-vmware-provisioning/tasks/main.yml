@@ -1,5 +1,5 @@
 ---
-- name: Clone a VM from template
+- name: Clone a LINUX VM from template
   vmware_guest:
     validate_certs: no
     esxi_hostname: "{{ vmware_esx_host }}"
@@ -29,4 +29,8 @@
       hostname: "{{ vmware_hostname }}"
       dns_servers: "{{ vmware_dns_server }}"
     template: "{{ vmware_template_name }}"
+    wait_for_customization: yes
+    wait_for_customization_timeout: 3600
+    wait_for_ip_address: yes
+    wait_for_ip_address_timeout: 600
   register: deploy_vm
