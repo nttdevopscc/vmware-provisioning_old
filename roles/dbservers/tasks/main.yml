@@ -16,6 +16,13 @@
     state=started 
     enabled=yes
 
+- name: create application user
+  mysql_user: 
+    name={{ dbuser }} 
+    password={{ dbpassword }} 
+    priv=*.*:ALL 
+    state=present
+
 - name: create application database
   mysql_db: 
     name={{ item }} 
@@ -24,10 +31,3 @@
   loop:
     - ansible_db01
     - ansible_db02
-
-- name: create application user
-  mysql_user: 
-    name={{ dbuser }} 
-    password={{ dbpassword }} 
-    priv=*.*:ALL 
-    state=present
