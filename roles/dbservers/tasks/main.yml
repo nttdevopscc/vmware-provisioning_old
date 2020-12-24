@@ -20,6 +20,8 @@
   mysql_db: 
     name={{ item }} 
     state=present
+    login_user=root
+    login_password=p@ssw0rd
 #  with_items:
   loop:
     - ansible_db01
