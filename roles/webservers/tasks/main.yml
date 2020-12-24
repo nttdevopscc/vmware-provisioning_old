@@ -3,7 +3,8 @@
 - name: ensure apache,php related packages are installed
   yum: name={{ item }} 
     state=present
-  with_items:
+#    with_items:
+  loop:
     - httpd
     - php
     - php-mysql
