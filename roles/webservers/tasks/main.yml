@@ -1,7 +1,8 @@
 ---
 # These task installs and enables apache on webservers
 - name: ensure apache,php related packages are installed
-  yum: name={{ item }} state=present
+  yum: name={{ item }} 
+    state=present
   with_items:
     - httpd
     - php
@@ -14,8 +15,12 @@
     enabled=yes
 
 - name: copy files to document root
-  copy: src=cloud.png dest=/var/www/html/cloud.png
+  copy: 
+    src=cloud.png 
+    dest=/var/www/html/cloud.png
 
 - name: copy application code to document root
-  template: src=index.php.j2 dest=/var/www/html/index.php
+  template: 
+    src=index.php.j2 
+    dest=/var/www/html/index.php
   notify: restart apache

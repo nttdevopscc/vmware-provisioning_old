@@ -2,7 +2,7 @@
 - name: install and configure webservers
   hosts: Web-DB
 #  remote_user: ec2-user
-#  sudo: yes
+  sudo: yes
   roles:
     - webservers
     - dbservers
