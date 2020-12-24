@@ -4,8 +4,8 @@
 </head>
 <body>
     <h3>
-        Thank you for reading this post. My IP Address is {{ ansible_eth0.ipv4.address }}.
-        This is {{ ansible_system }} OS with {{ ansible_userspace_architecture }} architecture
+        Thank you for reading this post. My IP Address is {{ ansible_ens160.ipv4.address }}.
+        This is {{ ansible_lsb.id }} OS with {{ ansible_lsb.description }} architecture
     </h3>
     <p>
         <strong>List of Databases:</strong> <br/>
