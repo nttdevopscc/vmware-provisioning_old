@@ -18,14 +18,17 @@
 
 - name: create application database
   mysql_db: 
-    name={{ item }} 
-    state=present
+#    name={{ item }} 
+#    state=present
+    login_host=172.31.2.61
     login_user=root
     login_password=p@ssw0rd
+    name="ansible_db01
+    state=present
 #  with_items:
-  loop:
-    - ansible_db01
-    - ansible_db02
+#  loop:
+#    - ansible_db01
+#    - ansible_db02
 
 - name: create application user
   mysql_user: 
