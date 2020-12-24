@@ -1,6 +1,6 @@
 ---
 - name: install and configure webservers
-  hosts: Web-DB
+  hosts: Web_DB
 #  remote_user: ec2-user
 #  sudo: yes
   become: yes
