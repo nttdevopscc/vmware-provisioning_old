@@ -13,7 +13,7 @@
 - name: ensure apache is running
   service: 
     name=apache2 
-    state=running 
+    state=started 
     enabled=yes
 
 - name: copy files to document root
